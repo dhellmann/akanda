@@ -104,7 +104,7 @@ class FirewallRules(base.RESTAPIBase):
 
         def parse_pf_rules_results(results):
             log.msg(results)
-            request.write(json.dumps({"rules": results.split('\n')}, cls=utils.ModelSerializer))
+            request.write(results)
             request.finish()
 
         def handle_error(failure):
@@ -123,7 +123,7 @@ class FirewallRules(base.RESTAPIBase):
 
         def parse_pf_states_results(results):
             log.msg(results)
-            request.write(json.dumps({"state table": results.split('\n')}, cls=utils.ModelSerializer))
+            request.write(results)
             request.finish()
 
         def handle_error(failure):
@@ -142,7 +142,7 @@ class FirewallRules(base.RESTAPIBase):
 
         def parse_pf_anchors_results(results):
             log.msg(results)
-            request.write(json.dumps({"anchors": results.split('\n')}, cls=utils.ModelSerializer))
+            request.write(results)
             request.finish()
 
         def handle_error(failure):
@@ -161,7 +161,7 @@ class FirewallRules(base.RESTAPIBase):
 
         def parse_pf_sources_results(results):
             log.msg(results)
-            request.write(json.dumps({"sources": results.split('\n')}, cls=utils.ModelSerializer))
+            request.write(results)
             request.finish()
 
         def handle_error(failure):
@@ -180,7 +180,7 @@ class FirewallRules(base.RESTAPIBase):
 
         def parse_pf_info_results(results):
             log.msg(results)
-            request.write(json.dumps({"info": results.split('\n')}, cls=utils.ModelSerializer))
+            request.write(results)
             request.finish()
 
         def handle_error(failure):
@@ -199,7 +199,7 @@ class FirewallRules(base.RESTAPIBase):
 
         def parse_pf_tables_results(results):
             log.msg(results)
-            request.write(json.dumps({"tables": results.split('\n')}, cls=utils.ModelSerializer))
+            request.write(results)
             request.finish()
 
         def handle_error(failure):
@@ -218,7 +218,7 @@ class FirewallRules(base.RESTAPIBase):
 
         def parse_pf_labels_results(results):
             log.msg(results)
-            request.write(json.dumps({"labels": results.split('\n')}, cls=utils.ModelSerializer))
+            request.write(results)
             request.finish()
 
         def handle_error(failure):
@@ -237,7 +237,7 @@ class FirewallRules(base.RESTAPIBase):
 
         def parse_pf_timeouts_results(results):
             log.msg(results)
-            request.write(json.dumps({"timeouts": results.split('\n')}, cls=utils.ModelSerializer))
+            request.write(results)
             request.finish()
 
         def handle_error(failure):
@@ -256,7 +256,7 @@ class FirewallRules(base.RESTAPIBase):
 
         def parse_pf_memory_results(results):
             log.msg(results)
-            request.write(json.dumps({"memory": results.split('\n')}, cls=utils.ModelSerializer))
+            request.write(results)
             request.finish()
 
         def handle_error(failure):
