@@ -44,8 +44,9 @@ class API(api.API):
         """Allocate all network resources for the instance.
 
         This method does not overwrite the device_owner attribute if it
-        begins with network:.  This change is the only difference from the
-        parent method.
+        begins with "network:" because those are owned by Quantum.
+
+        This change is the only difference from the parent method.
         """
         quantum = quantumv2.get_client(context)
         LOG.debug(_('allocate_for_instance() for %s'),
@@ -80,8 +81,10 @@ class API(api.API):
             try:
                 port = ports.get(network_id)
                 if port:
+                    ## LOCAL CUSTOMIZATION STARTS
                     if not port['device_owner'].startswith('network:'):
                         port_req_body['device_owner'] = zone
+                    ## LOCAL CUSTOMIZATION ENDS
                     quantum.update_port(port['id'], dict(port=port_req_body))
                     touched_port_ids.append(port['id'])
                 else:
@@ -149,6 +152,7 @@ class API(api.API):
         """
         search_opts = {'device_id': instance['uuid']}
 
+        # Relax the filters
         if context.project_name != 'service' or context.user_name != 'quantum':
             search_opts['tenant_id'] = instance['project_id']
 
